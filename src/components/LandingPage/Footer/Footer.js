@@ -13,9 +13,9 @@ const Footer = () => {
           <InstagramIcon />
           <p>mejamakan.my</p>
         </span>
-        <span onClick={() => window.open('https://wa.me/601111294320')}>
+        <span onClick={() => window.open('https://wa.me/601127192189')}>
           <WhatsAppIcon />
-          <p>6011 1129 4320</p>
+          <p>6011 2719 2189</p>
         </span>
       </SocialSection>
     </FooterContainer>
