@@ -7,6 +7,7 @@ import NavBar from './Navbar/Navbar';
 import Plans from './Plans/Plans';
 import { Container } from './LandingPage.styled';
 import { useMixpanel } from 'react-mixpanel-browser';
+import FAB from './FAB/FAB';
 
 const LandingPage = () => {
   const pricingRef = useRef(null);
@@ -25,6 +26,7 @@ const LandingPage = () => {
       <How mixpanel={mixpanel} />
       <Menu ref={menuRef} />
       <Footer />
+      <FAB />
     </Container>
   );
 };
