@@ -13,6 +13,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { getDatabase, ref, set } from 'firebase/database';
 import { scrollToViewButton } from '../../../../Utils/ScrollToView/scrollToViewButton';
+import { claimVoucherRequest } from './ClaimModal.services';
 
 const ClaimModal = ({
   modalState,
@@ -60,8 +61,16 @@ const ClaimModal = ({
         planSelected,
         packageSelected,
         ...pricing,
-      }).then(() => {
+      }).then(async () => {
         setSubmitted(true);
+
+        const payload = {
+          email: formData.email,
+          name: formData.name,
+          postcode: formData.postcode,
+        };
+
+        claimVoucherRequest(payload);
 
         mixpanel.track('Claimed Voucher', {
           ...formData,
