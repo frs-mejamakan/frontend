@@ -5,7 +5,7 @@ import {
   MenuSlider,
   WeeklyList,
   WeeklyMenu,
-} from './Menu.styled';
+} from './Menu.styles';
 import { WeekOne } from '../../../Utils/menu.utils';
 import { useDraggable } from 'react-use-draggable-scroll';
 

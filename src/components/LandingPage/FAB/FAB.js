@@ -35,9 +35,14 @@ const whatsAppNumber = () => {
   window.open(`https://wa.me/${601127192189}?text=${parseMessage}`);
 };
 
-const FAB = () => {
+const FAB = ({ mixpanel }) => {
   return (
-    <Float onClick={() => whatsAppNumber()}>
+    <Float
+      onClick={() => {
+        mixpanel.track('Contact', { channel: 'whatsapp' });
+        whatsAppNumber();
+      }}
+    >
       <WhatsApp />
     </Float>
   );

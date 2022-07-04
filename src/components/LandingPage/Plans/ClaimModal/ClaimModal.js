@@ -6,7 +6,7 @@ import {
   Header,
   FormContainer,
   Toolbar,
-} from './ClaimModal.styled';
+} from './ClaimModal.styles';
 import TextField from '@mui/material/TextField';
 import Button from '../../../Shared/Button/Button';
 import { v4 as uuidv4 } from 'uuid';

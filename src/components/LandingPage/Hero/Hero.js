@@ -1,7 +1,7 @@
 import React from 'react';
 import { scrollToViewButton } from '../../../Utils/ScrollToView/scrollToViewButton';
 import Button from '../../Shared/Button/Button';
-import { HeroContainer } from './Hero.styled';
+import { HeroContainer } from './Hero.styles';
 
 const Hero = ({ mixpanel }) => {
   return (
