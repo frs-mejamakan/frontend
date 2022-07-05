@@ -17,6 +17,7 @@
     "react-mixpanel-browser": "^3.2.2",
     "react-scripts": "5.0.1",
     "react-use-draggable-scroll": "^0.4.3",
+    "referral-code-generator": "^1.0.8",
     "styled-components": "^5.3.5",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"

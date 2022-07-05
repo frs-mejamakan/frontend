@@ -15,6 +15,8 @@ import { getDatabase, ref, set } from 'firebase/database';
 import { scrollToViewButton } from '../../../../Utils/ScrollToView/scrollToViewButton';
 import { claimVoucherRequest } from './ClaimModal.services';
 
+import ReferralCodeGenerator from 'referral-code-generator';
+
 const ClaimModal = ({
   modalState,
   modalClose,
@@ -54,12 +56,19 @@ const ClaimModal = ({
   const submitClaim = () => {
     const db = getDatabase();
     const isError = validate();
+    const referralCode = ReferralCodeGenerator.custom(
+      'uppercase',
+      5,
+      5,
+      formData.email
+    );
     if (!isError) {
       set(ref(db, 'claims/' + uuidv4()), {
         ...formData,
         familyMembers,
         planSelected,
         packageSelected,
+        referralCode,
         ...pricing,
       }).then(async () => {
         setSubmitted(true);
@@ -68,6 +77,7 @@ const ClaimModal = ({
           email: formData.email,
           name: formData.name,
           postcode: formData.postcode,
+          referralCode: referralCode,
         };
 
         claimVoucherRequest(payload);
