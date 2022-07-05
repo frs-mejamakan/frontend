@@ -6,13 +6,9 @@ import { HeroContainer } from './Hero.styles';
 const Hero = ({ mixpanel }) => {
   return (
     <HeroContainer>
-      <h1>
-        Lauk subscriptions <br />
-        for families
-      </h1>
+      <h1>Lauk delivery starting from RM10 per person</h1>
       <p>
-        We prepare, cook and deliver delicious Malaysian dishes so you don't
-        have to
+        We prepare, cook and deliver delicious Malaysian lauk Mondays to Fridays
       </p>
       <Button
         onClick={() => {

@@ -8,6 +8,7 @@ import Plans from './Plans/Plans';
 import { Container } from './LandingPage.styles';
 import { useMixpanel } from 'react-mixpanel-browser';
 import FAB from './FAB/FAB';
+import Chef from './Chef/Chef';
 
 const LandingPage = () => {
   const pricingRef = useRef(null);
@@ -23,6 +24,7 @@ const LandingPage = () => {
       <NavBar mixpanel={mixpanel} />
       <Hero mixpanel={mixpanel} />
       <Plans ref={pricingRef} mixpanel={mixpanel} />
+      <Chef />
       <How mixpanel={mixpanel} />
       <Menu ref={menuRef} />
       <Footer mixpanel={mixpanel} />
