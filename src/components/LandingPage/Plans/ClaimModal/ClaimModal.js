@@ -161,14 +161,14 @@ const ClaimModal = ({
             <>
               <Header>
                 <h3>
-                  Hey {formData.name}, We will be sending your free meals in
-                  August!
+                  Hey {formData.name}, we've sent your voucher to{' '}
+                  {formData.email}
                 </h3>
               </Header>
               <p style={{ textAlign: 'center' }}>
-                We will be starting operations in August. You will receive a
-                voucher on your email closer to the date. You will be able to
-                claim your voucher on this website. See you soon and thank you!
+                You will be able to redeem your voucher on this website on 18th
+                July 2022. We will start our operations on 25th July 2022. We
+                are excited and we cannot wait for you try our delicious lauk.
               </p>
               <Button
                 width='100%'

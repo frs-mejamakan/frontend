@@ -6,8 +6,6 @@ const Float = styled.a`
   position: fixed;
   width: 60px;
   height: 60px;
-  bottom: 140px;
-  right: 33%;
   background-color: #3bcd92;
   color: #fff;
   border-radius: 50px;
@@ -23,10 +21,8 @@ const Float = styled.a`
     font-size: 40px;
   }
 
-  @media screen and (max-width: 560px) {
-    right: 5%;
-    bottom: 2.5%;
-  }
+  right: 5%;
+  bottom: 2.5%;
 `;
 
 const whatsAppNumber = () => {
