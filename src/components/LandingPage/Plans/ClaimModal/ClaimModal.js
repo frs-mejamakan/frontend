@@ -166,8 +166,8 @@ const ClaimModal = ({
                 </h3>
               </Header>
               <p style={{ textAlign: 'center' }}>
-                You will be able to redeem your voucher on this website on 18th
-                July 2022. We will start our operations on 25th July 2022. We
+                You will be able to redeem your voucher on this website on 11th
+                July 2022. We will start our operations on 13th July 2022. We
                 are excited and we cannot wait for you try our delicious lauk.
               </p>
               <Button
