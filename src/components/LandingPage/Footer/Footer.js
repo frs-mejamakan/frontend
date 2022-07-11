@@ -1,13 +1,14 @@
 import React from 'react';
 import { FooterContainer, SocialSection } from './Footer.styles';
-import logo from '../../../assets/mejamakan_logo_vertical.png';
+import logo from '../../../../public/assets/mejamakan_logo_vertical.png';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import Image from 'next/image';
 
 const Footer = ({ mixpanel }) => {
   return (
     <FooterContainer>
-      <img src={logo} alt='mejamakan' />
+      <Image src={logo} alt='mejamakan' />
       <SocialSection>
         <span
           onClick={() => {

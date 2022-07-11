@@ -8,6 +8,7 @@ import {
 } from './Menu.styles';
 import { WeekOne } from '../../../Utils/menu.utils';
 import { useDraggable } from 'react-use-draggable-scroll';
+import Image from 'next/image';
 
 const DailyMenu = ({ i, index }) => {
   const ref = useRef(); // We will use React useRef hook to reference the wrapping div:
@@ -26,7 +27,7 @@ const DailyMenu = ({ i, index }) => {
 
           return (
             <MenuItem key={mIndex} color={color}>
-              <img src={m.image} alt={m.name} />
+              <Image src={m.image} alt={m.name} />
               <h3>{m.name}</h3>
               <span>
                 <p>{m.category}</p>

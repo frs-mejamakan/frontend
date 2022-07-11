@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+}
+
+:root {
+  --maintext: #57555c;
+  --greytext: #969696;
+  --green: #3bcd92;
+  --red: #ff6b6b;
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue';
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: var(--maintext);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h3,
+h1 {
+  font-family: 'Baloo Bhai';
+  font-weight: 500;
+}
+
+p {
+  line-height: 150%;
+}

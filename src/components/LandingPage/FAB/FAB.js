@@ -23,10 +23,8 @@ const Float = styled.a`
     font-size: 40px;
   }
 
-  @media screen and (max-width: 560px) {
-    right: 5%;
-    bottom: 2.5%;
-  }
+  right: 5%;
+  bottom: 2.5%;
 `;
 
 const whatsAppNumber = () => {
