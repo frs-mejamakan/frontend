@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const claimVoucherRequest = async (payload) => {
   const request = await axios.post(
-    `${process.env.REACT_APP_API_URL}/website/claim-voucher`,
+    `${process.env.NEXT_PUBLIC_API_URL}/website/claim-voucher`,
     payload,
     { withCredentials: true }
   );

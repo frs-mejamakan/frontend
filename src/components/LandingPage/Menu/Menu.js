@@ -41,7 +41,7 @@ const DailyMenu = ({ i, index }) => {
   );
 };
 
-const Menu = forwardRef(({ ref }) => {
+const Menu = forwardRef(({}, { ref }) => {
   return (
     <MenuContainer ref={ref} id='menu'>
       <span>

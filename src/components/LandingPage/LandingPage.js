@@ -6,32 +6,29 @@ import Menu from './Menu/Menu';
 import NavBar from './Navbar/Navbar';
 import Plans from './Plans/Plans';
 import { Container } from './LandingPage.styles';
-import { useMixpanel } from 'react-mixpanel-browser';
 import FAB from './FAB/FAB';
 import Chef from './Chef/Chef';
-import LandingPageHead from './LandingPage.head';
+import { Mixpanel } from '../../mixpanel';
 
 const LandingPage = () => {
   const pricingRef = useRef(null);
   const menuRef = useRef(null);
-  const mixpanel = useMixpanel();
 
   useEffect(() => {
-    mixpanel?.track('Landing Page View');
+    Mixpanel.track('Landing Page View');
   }, []);
 
   return (
     <>
-      <LandingPageHead />
       <Container>
-        <NavBar mixpanel={mixpanel} />
-        <Hero mixpanel={mixpanel} />
-        <Plans ref={pricingRef} mixpanel={mixpanel} />
+        <NavBar />
+        <Hero />
+        <Plans ref={pricingRef} />
         <Chef />
-        <How mixpanel={mixpanel} />
+        <How />
         <Menu ref={menuRef} />
-        <Footer mixpanel={mixpanel} />
-        <FAB mixpanel={mixpanel} />
+        <Footer />
+        <FAB />
       </Container>
     </>
   );

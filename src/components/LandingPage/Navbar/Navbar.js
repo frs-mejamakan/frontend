@@ -3,14 +3,15 @@ import { NavbarContainer } from './NavBar.styles';
 import logo from '../../../../public/assets/mejamakan logo.png';
 import { scrollToViewButton } from '../../../Utils/ScrollToView/scrollToViewButton';
 import Image from 'next/image';
+import { Mixpanel } from '../../../mixpanel';
 
-const NavBar = ({ mixpanel }) => {
+const NavBar = ({}) => {
   return (
     <NavbarContainer>
       <Image src={logo} height='30px' width='120px' alt='Ejenkita Logo' />
       <h3
         onClick={() => {
-          mixpanel.track('See Menu');
+          Mixpanel.track('See Menu');
           scrollToViewButton('menu', null, 2500);
         }}
       >

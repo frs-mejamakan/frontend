@@ -14,6 +14,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { getDatabase, ref, set } from 'firebase/database';
 import { scrollToViewButton } from '../../../../Utils/ScrollToView/scrollToViewButton';
 import { claimVoucherRequest } from './ClaimModal.services';
+import { Mixpanel } from '../../../../mixpanel';
 
 const ClaimModal = ({
   modalState,
@@ -24,7 +25,6 @@ const ClaimModal = ({
   planSelected,
   packageSelected,
   pricing,
-  mixpanel,
 }) => {
   const [submitted, setSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState({
@@ -72,7 +72,7 @@ const ClaimModal = ({
 
         claimVoucherRequest(payload);
 
-        mixpanel.track('Claimed Voucher', {
+        Mixpanel.track('Claimed Voucher', {
           ...formData,
           familyMembers,
           planSelected,
@@ -117,7 +117,7 @@ const ClaimModal = ({
                   label='Name'
                   name='name'
                   value={formData.name}
-                  error={formErrors.name}
+                  error={formErrors.name ? true : false}
                   helperText={formErrors.name && formErrors.name}
                   onChange={(e) => formHandler(e)}
                   type='text'
@@ -128,7 +128,7 @@ const ClaimModal = ({
                   type='email'
                   name='email'
                   value={formData.email}
-                  error={formErrors.email}
+                  error={formErrors.email ? true : false}
                   helperText={formErrors.email && formErrors.email}
                   onChange={(e) => formHandler(e)}
                   placeholder='We will send your voucher here'

@@ -4,8 +4,9 @@ import logo from '../../../../public/assets/mejamakan_logo_vertical.png';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import Image from 'next/image';
+import { Mixpanel } from '../../../mixpanel';
 
-const Footer = ({ mixpanel }) => {
+const Footer = ({}) => {
   return (
     <FooterContainer>
       <Image src={logo} alt='mejamakan' />
@@ -21,7 +22,7 @@ const Footer = ({ mixpanel }) => {
         </span>
         <span
           onClick={() => {
-            mixpanel.track('Contact', { channel: 'whatsapp' });
+            Mixpanel.track('Contact', { channel: 'whatsapp' });
             window.open('https://wa.me/601127192189');
           }}
         >
