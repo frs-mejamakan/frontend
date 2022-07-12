@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mixpanel } from '../../../mixpanel';
-import { scrollToViewButton } from '../../../Utils/ScrollToView/scrollToViewButton';
+import { scrollToViewButton } from '../../../utils/ScrollToView/scrollToViewButton';
 import Button from '../../Shared/Button/Button';
 import { HowContainer, HowList, Indicator, ListItem } from './How.styles';
 

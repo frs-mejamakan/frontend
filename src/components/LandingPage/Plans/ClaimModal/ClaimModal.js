@@ -12,7 +12,7 @@ import Button from '../../../Shared/Button/Button';
 import { v4 as uuidv4 } from 'uuid';
 
 import { getDatabase, ref, set } from 'firebase/database';
-import { scrollToViewButton } from '../../../../Utils/ScrollToView/scrollToViewButton';
+import { scrollToViewButton } from '../../../../utils/ScrollToView/scrollToViewButton';
 import { claimVoucherRequest } from './ClaimModal.services';
 import { Mixpanel } from '../../../../mixpanel';
 

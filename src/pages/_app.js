@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as fbq from '../lib/fpixel';
+import { SessionProvider } from 'next-auth/react';
+
 import '../styles/global.css';
 import Pixel from '../pixel';
 require('helvatica-neue-lt/index.css');
 
-function App({ Component, pageProps }) {
+function App({ Component, pageProps: { session, ...pageProps } }) {
   const router = useRouter();
 
   useEffect(() => {
@@ -24,7 +26,9 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Pixel />
-      <Component {...pageProps} />;
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
     </>
   );
 }

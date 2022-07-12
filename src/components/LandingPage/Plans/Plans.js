@@ -10,7 +10,7 @@ import {
 } from './Plans.styled';
 import Slider from '@mui/material/Slider';
 import Button from '../../Shared/Button/Button';
-import { priceCalculator } from '../../../Utils/priceCalculator.utils';
+import { priceCalculator } from '../../../utils/priceCalculator.utils';
 import ClaimModal from './ClaimModal/ClaimModal';
 import { Mixpanel } from '../../../mixpanel';
 
@@ -177,7 +177,7 @@ const Plans = forwardRef(({}, { ref }) => {
             modalOpen();
           }}
         >
-          CLAIM YOUR FREE MEALS
+          START YOUR {planSelected} DAYS PLAN NOW
         </Button>
       </Calculator>
       <ClaimModal
