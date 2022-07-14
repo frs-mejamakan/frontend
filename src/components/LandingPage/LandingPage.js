@@ -3,33 +3,37 @@ import Footer from './Footer/Footer';
 import Hero from './Hero/Hero';
 import How from './How/How';
 import Menu from './Menu/Menu';
-import NavBar from './Navbar/Navbar';
+import NavBar from '../Shared/Navbar/Navbar';
 import Plans from './Plans/Plans';
-import { Container } from './LandingPage.styles';
-import { useMixpanel } from 'react-mixpanel-browser';
 import FAB from './FAB/FAB';
 import Chef from './Chef/Chef';
+import { Mixpanel } from '../../mixpanel';
+import { Container } from '../Shared/Layout/Layout';
+import Navigation from './Navigation/Navigation';
 
 const LandingPage = () => {
   const pricingRef = useRef(null);
   const menuRef = useRef(null);
-  const mixpanel = useMixpanel();
 
   useEffect(() => {
-    mixpanel.track('Landing Page View');
+    Mixpanel.track('Landing Page View');
   }, []);
 
   return (
-    <Container>
-      <NavBar mixpanel={mixpanel} />
-      <Hero mixpanel={mixpanel} />
-      <Plans ref={pricingRef} mixpanel={mixpanel} />
-      <Chef />
-      <How mixpanel={mixpanel} />
-      <Menu ref={menuRef} />
-      <Footer mixpanel={mixpanel} />
-      <FAB mixpanel={mixpanel} />
-    </Container>
+    <>
+      <Container>
+        <NavBar>
+          <Navigation />
+        </NavBar>
+        <Hero />
+        <Plans ref={pricingRef} />
+        <Chef />
+        <How />
+        <Menu ref={menuRef} />
+        <Footer />
+        <FAB />
+      </Container>
+    </>
   );
 };
 

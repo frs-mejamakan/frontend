@@ -1,9 +1,10 @@
 import React from 'react';
-import { scrollToViewButton } from '../../../Utils/ScrollToView/scrollToViewButton';
+import { Mixpanel } from '../../../mixpanel';
+import { scrollToViewButton } from '../../../utils/ScrollToView/scrollToViewButton';
 import Button from '../../Shared/Button/Button';
 import { HowContainer, HowList, Indicator, ListItem } from './How.styles';
 
-const How = ({ mixpanel }) => {
+const How = ({}) => {
   return (
     <HowContainer>
       <h1>How it works</h1>
@@ -38,7 +39,7 @@ const How = ({ mixpanel }) => {
       </HowList>
       <Button
         onClick={() => {
-          mixpanel.track('CTA Button Clicked', { section: 'How' });
+          Mixpanel.track('CTA Button Clicked', { section: 'How' });
           scrollToViewButton('pricing');
         }}
       >

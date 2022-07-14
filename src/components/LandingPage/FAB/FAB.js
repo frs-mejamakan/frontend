@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import WhatsApp from '@mui/icons-material/WhatsApp';
+import { Mixpanel } from '../../../mixpanel';
 
 const Float = styled.a`
   position: fixed;
@@ -31,11 +32,11 @@ const whatsAppNumber = () => {
   window.open(`https://wa.me/${601127192189}?text=${parseMessage}`);
 };
 
-const FAB = ({ mixpanel }) => {
+const FAB = ({}) => {
   return (
     <Float
       onClick={() => {
-        mixpanel.track('Contact', { channel: 'whatsapp' });
+        Mixpanel.track('Contact', { channel: 'whatsapp' });
         whatsAppNumber();
       }}
     >

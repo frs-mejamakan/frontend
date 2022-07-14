@@ -10,10 +10,11 @@ import {
 } from './Plans.styled';
 import Slider from '@mui/material/Slider';
 import Button from '../../Shared/Button/Button';
-import { priceCalculator } from '../../../Utils/priceCalculator.utils';
+import { priceCalculator } from '../../../utils/priceCalculator.utils';
 import ClaimModal from './ClaimModal/ClaimModal';
+import { Mixpanel } from '../../../mixpanel';
 
-const Plans = forwardRef(({ ref, mixpanel }) => {
+const Plans = forwardRef(({}, { ref }) => {
   const [familyMembers, setFamilyMembers] = useState(4);
   const [planSelected, setPlanSelected] = useState(20);
   const [packageSelected, setPackageSelected] = useState('A');
@@ -172,11 +173,11 @@ const Plans = forwardRef(({ ref, mixpanel }) => {
           color='red'
           width='100%'
           onClick={() => {
-            mixpanel.track('CTA Button Clicked', { section: 'Plans' });
+            Mixpanel.track('CTA Button Clicked', { section: 'Plans' });
             modalOpen();
           }}
         >
-          CLAIM YOUR FREE MEALS
+          START YOUR {planSelected} DAYS PLAN
         </Button>
       </Calculator>
       <ClaimModal
@@ -188,7 +189,6 @@ const Plans = forwardRef(({ ref, mixpanel }) => {
         formData={formData}
         formHandler={formHandler}
         pricing={pricing}
-        mixpanel={mixpanel}
       />
     </PlansContainer>
   );

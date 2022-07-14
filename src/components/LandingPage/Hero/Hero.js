@@ -1,9 +1,10 @@
 import React from 'react';
-import { scrollToViewButton } from '../../../Utils/ScrollToView/scrollToViewButton';
+import { Mixpanel } from '../../../mixpanel';
+import { scrollToViewButton } from '../../../utils/ScrollToView/scrollToViewButton';
 import Button from '../../Shared/Button/Button';
 import { HeroContainer } from './Hero.styles';
 
-const Hero = ({ mixpanel }) => {
+const Hero = ({}) => {
   return (
     <HeroContainer>
       <h1>Lauk delivery starting from RM10 per person</h1>
@@ -12,11 +13,11 @@ const Hero = ({ mixpanel }) => {
       </p>
       <Button
         onClick={() => {
-          mixpanel.track('CTA Button Clicked', { section: 'Hero' });
+          Mixpanel.track('CTA Button Clicked', { section: 'Hero' });
           scrollToViewButton('pricing');
         }}
       >
-        CLAIM YOUR FREE MEALS
+        GET YOUR FIRST MEAL FREE
       </Button>
     </HeroContainer>
   );

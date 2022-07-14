@@ -11,9 +11,9 @@ import TextField from '@mui/material/TextField';
 import Button from '../../../Shared/Button/Button';
 import { v4 as uuidv4 } from 'uuid';
 
-import { getDatabase, ref, set } from 'firebase/database';
-import { scrollToViewButton } from '../../../../Utils/ScrollToView/scrollToViewButton';
+import { scrollToViewButton } from '../../../../utils/ScrollToView/scrollToViewButton';
 import { claimVoucherRequest } from './ClaimModal.services';
+import { Mixpanel } from '../../../../mixpanel';
 
 import ReferralCodeGenerator from 'referral-code-generator';
 
@@ -26,7 +26,6 @@ const ClaimModal = ({
   planSelected,
   packageSelected,
   pricing,
-  mixpanel,
 }) => {
   const [submitted, setSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState({
@@ -63,6 +62,14 @@ const ClaimModal = ({
       formData.email
     );
     if (!isError) {
+      const payload = {
+        ...formData,
+        familyMembers,
+        planSelected,
+        packageSelected,
+        ...pricing,
+      };
+
       set(ref(db, 'claims/' + uuidv4()), {
         ...formData,
         familyMembers,
@@ -82,7 +89,7 @@ const ClaimModal = ({
 
         claimVoucherRequest(payload);
 
-        mixpanel.track('Claimed Voucher', {
+        Mixpanel.track('Claimed Voucher', {
           ...formData,
           familyMembers,
           planSelected,
@@ -98,36 +105,24 @@ const ClaimModal = ({
       <ModalContainer>
         <Content>
           <Toolbar>
-            {!submitted ? (
-              <h3
-                style={{ fontSize: '12px' }}
-                onClick={() => {
-                  modalClose();
-                  scrollToViewButton('pricing');
-                }}
-              >
-                Re-configure plans
-              </h3>
-            ) : (
-              <h3></h3>
-            )}
+            {!submitted ? <h3></h3> : <h3></h3>}
             <h3 onClick={() => modalClose()}>X</h3>
           </Toolbar>
           {!submitted && (
             <>
               <Header>
-                <h3>FREE MEALS FOR YOUR FAMILY</h3>
+                <h3>FREE MEALS PROMOTION ENDED</h3>
               </Header>
               <p>
-                We will send a free meal voucher for your family of{' '}
-                <span>{familyMembers}</span>
+                We will update our website soon to start accepting and manage
+                orders. Come back again next week, thanks for checking us out 😊
               </p>
-              <FormContainer>
+              {/* <FormContainer>
                 <TextField
                   label='Name'
                   name='name'
                   value={formData.name}
-                  error={formErrors.name}
+                  error={formErrors.name ? true : false}
                   helperText={formErrors.name && formErrors.name}
                   onChange={(e) => formHandler(e)}
                   type='text'
@@ -138,7 +133,7 @@ const ClaimModal = ({
                   type='email'
                   name='email'
                   value={formData.email}
-                  error={formErrors.email}
+                  error={formErrors.email ? true : false}
                   helperText={formErrors.email && formErrors.email}
                   onChange={(e) => formHandler(e)}
                   placeholder='We will send your voucher here'
@@ -154,7 +149,7 @@ const ClaimModal = ({
               </FormContainer>
               <Button color='green' width='100%' onClick={submitClaim}>
                 CLAIM YOUR FREE MEALS
-              </Button>
+              </Button> */}
             </>
           )}
           {submitted && (
