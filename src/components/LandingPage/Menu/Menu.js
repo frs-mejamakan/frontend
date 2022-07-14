@@ -46,7 +46,7 @@ const Menu = forwardRef(({}, { ref }) => {
     <MenuContainer ref={ref} id='menu'>
       <span>
         <h1>This week's menu</h1>
-        <p>Served with aromatic jasmine rice</p>
+        <p>Aromatic rice available for add-on</p>
       </span>
 
       <WeeklyList>

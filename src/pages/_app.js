@@ -4,12 +4,11 @@ import * as fbq from '../lib/fpixel';
 import { SessionProvider } from 'next-auth/react';
 
 import '../styles/global.css';
-import Pixel from '../pixel';
+import Pixel from '../lib/pixel';
 require('helvatica-neue-lt/index.css');
 
 function App({ Component, pageProps: { session, ...pageProps } }) {
   const router = useRouter();
-
   useEffect(() => {
     // This pageview only triggers the first time (it's important for Pixel to have real information)
     fbq.pageview();

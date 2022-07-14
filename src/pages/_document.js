@@ -2,6 +2,8 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { FB_PIXEL_ID } from '../lib/fpixel';
 import { ServerStyleSheet } from 'styled-components';
 
+import connectFB from '../../firebase';
+
 export default class MyDocument extends Document {
   render() {
     return (

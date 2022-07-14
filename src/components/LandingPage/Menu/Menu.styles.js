@@ -15,6 +15,7 @@ export const MenuContainer = styled.div`
 
   p {
     font-size: 14px;
+    font-style: italic;
   }
 
   button {

@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import * as fbq from './lib/fpixel';
+import * as fbq from './fpixel';
 
 const Pixel = () => {
   return (
