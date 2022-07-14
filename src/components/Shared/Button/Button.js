@@ -18,17 +18,27 @@ const SharedButton = styled.button`
   color: #57555c;
   margin-top: 0.5em;
   font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  justify-content: ${(props) => (props.space ? 'space-between' : 'center')};
+
+  .MuiSvgIcon-root {
+    color: ${(props) => `var(--${props.color})`};
+  }
 `;
 
-const Button = ({ children, color, width, onClick, disabled }) => {
+const Button = ({ children, color, width, onClick, disabled, icon, space }) => {
   return (
     <SharedButton
       color={color}
       width={width}
       onClick={onClick}
       disabled={disabled}
+      space={space}
     >
       {children}
+      {icon && icon}
     </SharedButton>
   );
 };

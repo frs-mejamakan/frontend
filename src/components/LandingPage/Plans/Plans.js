@@ -177,7 +177,7 @@ const Plans = forwardRef(({}, { ref }) => {
             modalOpen();
           }}
         >
-          START YOUR {planSelected} DAYS PLAN NOW
+          START YOUR {planSelected} DAYS PLAN
         </Button>
       </Calculator>
       <ClaimModal

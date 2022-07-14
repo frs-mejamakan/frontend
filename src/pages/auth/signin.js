@@ -1,22 +1,22 @@
-import { getProviders, signIn, signOut, useSession } from 'next-auth/react';
+import { getProviders, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import Auth from '../../components/Auth/Auth';
+import { Container } from '../../components/Shared/Layout/Layout';
+import NavBar from '../../components/Shared/Navbar/Navbar';
 
 const signin = ({ providers }) => {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
+  const router = useRouter();
 
-  console.log(session);
+  if (status === 'authenticated') {
+    router.push('/');
+  }
 
   return (
-    <>
-      <p>{session?.user?.email}</p>
-      {Object.values(providers).map((provider) => (
-        <div key={provider.name}>
-          <button onClick={() => signIn(provider.id)}>
-            Sign in with {provider.name}
-          </button>
-        </div>
-      ))}
-      {session && <button onClick={() => signOut()}>Sign Out</button>}
-    </>
+    <Container>
+      <NavBar />
+      <Auth providers={providers} />
+    </Container>
   );
 };
 

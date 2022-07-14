@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import FacebookProvider from 'next-auth/providers/facebook';
-import { getOrCreateUser } from '../../../services/auth.services';
+import { getCurrentUser, signUser } from '../../../services/auth.services';
 
 const providers = [
   GoogleProvider({
@@ -18,19 +18,35 @@ const secret = process.env.NEXT_PUBLIC_JWT_SECRET;
 
 const callbacks = {};
 
-callbacks.signIn = async function signIn() {
+callbacks.signIn = async function signIn({ user }) {
+  const { data } = await signUser({
+    email: user.email,
+    name: user.name,
+    image: user.image,
+  });
+
+  if (!data.success) {
+    return false;
+  }
+
+  user.token = data.token;
+
   return true;
 };
 
-callbacks.session = async function session(session, token) {
-  const requestData = await getOrCreateUser({
-    email: session.session.user.email,
-    name: session.session.user.name,
-    image: session.session.user.image,
-  });
+callbacks.jwt = async function jwt({ token, user }) {
+  if (user?.token) {
+    token.accessToken = user.token;
+  }
 
-  session.user = requestData.data.data;
+  return token;
+};
 
+callbacks.session = async function session({ session, token }) {
+  session.accessToken = token.accessToken;
+  const { data } = await getCurrentUser(session.accessToken);
+
+  session.user = { ...session.user, ...data.data };
   return session;
 };
 

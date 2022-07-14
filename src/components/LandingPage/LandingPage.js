@@ -3,12 +3,13 @@ import Footer from './Footer/Footer';
 import Hero from './Hero/Hero';
 import How from './How/How';
 import Menu from './Menu/Menu';
-import NavBar from './Navbar/Navbar';
+import NavBar from '../Shared/Navbar/Navbar';
 import Plans from './Plans/Plans';
-import { Container } from './LandingPage.styles';
 import FAB from './FAB/FAB';
 import Chef from './Chef/Chef';
 import { Mixpanel } from '../../mixpanel';
+import { Container } from '../Shared/Layout/Layout';
+import Navigation from './Navigation/Navigation';
 
 const LandingPage = () => {
   const pricingRef = useRef(null);
@@ -21,7 +22,9 @@ const LandingPage = () => {
   return (
     <>
       <Container>
-        <NavBar />
+        <NavBar>
+          <Navigation />
+        </NavBar>
         <Hero />
         <Plans ref={pricingRef} />
         <Chef />
