@@ -6,6 +6,7 @@ export const HeroContainer = styled.div`
   align-items: center;
   margin: 0 auto;
   width: 350px;
+  transition: max-height 2.5s ease-out;
 
   gap: 1.5em;
   h1 {

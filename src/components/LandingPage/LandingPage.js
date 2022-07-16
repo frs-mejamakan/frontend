@@ -1,19 +1,22 @@
-import React, { useRef, useEffect } from 'react';
-import Footer from './Footer/Footer';
+import React, { useRef, useEffect, useState } from 'react';
 import Hero from './Hero/Hero';
 import How from './How/How';
 import Menu from './Menu/Menu';
-import NavBar from '../Shared/Navbar/Navbar';
-import Plans from './Plans/Plans';
 import FAB from './FAB/FAB';
 import Chef from './Chef/Chef';
 import { Mixpanel } from '../../mixpanel';
-import { Container } from '../Shared/Layout/Layout';
-import Navigation from './Navigation/Navigation';
+import { useSession } from 'next-auth/react';
+import Footer from '../Shared/Footer/Footer';
 
 const LandingPage = () => {
-  const pricingRef = useRef(null);
+  const { data: session } = useSession();
+
   const menuRef = useRef(null);
+  const [paySession, setPaySession] = useState(false);
+
+  const startPaySession = () => {
+    setPaySession(true);
+  };
 
   useEffect(() => {
     Mixpanel.track('Landing Page View');
@@ -21,18 +24,16 @@ const LandingPage = () => {
 
   return (
     <>
-      <Container>
-        <NavBar>
-          <Navigation />
-        </NavBar>
-        <Hero />
-        <Plans ref={pricingRef} />
-        <Chef />
-        <How />
-        <Menu ref={menuRef} />
-        <Footer />
-        <FAB />
-      </Container>
+      <Hero
+        session={session}
+        startPaySession={startPaySession}
+        paySession={paySession}
+      />
+      <Menu ref={menuRef} />
+      <Chef />
+      <How />
+      <Footer />
+      <FAB />
     </>
   );
 };

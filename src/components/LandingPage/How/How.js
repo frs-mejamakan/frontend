@@ -43,7 +43,7 @@ const How = ({}) => {
           scrollToViewButton('pricing');
         }}
       >
-        CLAIM YOUR FREE MEALS
+        GET YOUR FIRST MEAL FREE
       </Button>
     </HowContainer>
   );

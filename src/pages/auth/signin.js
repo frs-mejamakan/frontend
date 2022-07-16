@@ -1,22 +1,22 @@
 import { getProviders, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import Auth from '../../components/Auth/Auth';
 import { Container } from '../../components/Shared/Layout/Layout';
 import NavBar from '../../components/Shared/Navbar/Navbar';
 
 const signin = ({ providers }) => {
-  const { status } = useSession();
+  const { status, data: session } = useSession();
   const router = useRouter();
 
-  if (status === 'authenticated') {
-    router.push('/');
+  if (session && !session.user.subscribed) {
+    router.push('/payments/plans');
   }
 
   return (
-    <Container>
-      <NavBar />
+    <>
       <Auth providers={providers} />
-    </Container>
+    </>
   );
 };
 

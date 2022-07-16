@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SharedButton = styled.button`
-  background: #ffffff;
+  background: ${(props) => (props.disabled ? '#57555c' : '#ffff')};
   border: 2px solid #57555c;
   box-shadow: ${(props) =>
     props.color
@@ -12,23 +12,34 @@ const SharedButton = styled.button`
   border-radius: 15px;
   font-family: 'Baloo Bhai';
   font-size: 14px;
-  padding: 0.5em 3em;
+  padding: 0.5em 1.5em;
   width: ${(props) => (props.width ? props.width : 'fit-content')};
   cursor: pointer;
   color: #57555c;
   margin-top: 0.5em;
   font-weight: 500;
 
-  display: flex;
-  align-items: center;
-  justify-content: ${(props) => (props.space ? 'space-between' : 'center')};
-
   .MuiSvgIcon-root {
     color: ${(props) => `var(--${props.color})`};
   }
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: ${(props) => (props.space ? 'space-between' : 'center')};
+  }
 `;
 
-const Button = ({ children, color, width, onClick, disabled, icon, space }) => {
+const Button = ({
+  children,
+  color,
+  width,
+  onClick,
+  disabled,
+  icon,
+  space,
+  loading,
+}) => {
   return (
     <SharedButton
       color={color}
@@ -37,8 +48,12 @@ const Button = ({ children, color, width, onClick, disabled, icon, space }) => {
       disabled={disabled}
       space={space}
     >
-      {children}
-      {icon && icon}
+      {!loading && (
+        <span>
+          {children}
+          {icon && icon}
+        </span>
+      )}
     </SharedButton>
   );
 };

@@ -7,6 +7,9 @@ export const FooterContainer = styled.div`
   padding: 0 1em;
   gap: 1em;
   margin-bottom: 50px;
+  border-top: 1px solid #efefef;
+  padding-top: 50px;
+  flex-shrink: 0;
 `;
 
 export const SocialSection = styled.div`

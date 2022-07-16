@@ -13,6 +13,8 @@ export const HowContainer = styled.div`
   button {
     align-self: center;
   }
+
+  padding-bottom: 50px;
 `;
 
 export const HowList = styled.div`

@@ -5,6 +5,7 @@ export const NavbarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
   img {
     width: 120px;
     height: auto;

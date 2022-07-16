@@ -3,8 +3,7 @@ import axios from 'axios';
 export const signUser = async (payload) => {
   const request = await axios.post(
     `${process.env.NEXT_PUBLIC_API_URL}/user/sign`,
-    payload,
-    { withCredentials: true }
+    payload
   );
 
   try {

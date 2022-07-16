@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef } from 'react';
+import React, { useRef } from 'react';
 import {
   MenuContainer,
   MenuItem,
@@ -41,11 +41,11 @@ const DailyMenu = ({ i, index }) => {
   );
 };
 
-const Menu = forwardRef(({}, { ref }) => {
+const Menu = ({}) => {
   return (
-    <MenuContainer ref={ref} id='menu'>
+    <MenuContainer>
       <span>
-        <h1>This week's menu</h1>
+        <h1>This week's lauk</h1>
         <p>Aromatic rice available for add-on</p>
       </span>
 
@@ -56,6 +56,6 @@ const Menu = forwardRef(({}, { ref }) => {
       </WeeklyList>
     </MenuContainer>
   );
-});
+};
 
 export default Menu;

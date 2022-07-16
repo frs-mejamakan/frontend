@@ -44,9 +44,11 @@ callbacks.jwt = async function jwt({ token, user }) {
 
 callbacks.session = async function session({ session, token }) {
   session.accessToken = token.accessToken;
-  const { data } = await getCurrentUser(session.accessToken);
+  if (!session.accessToken) return session;
 
+  const { data } = await getCurrentUser(session.accessToken);
   session.user = { ...session.user, ...data.data };
+
   return session;
 };
 

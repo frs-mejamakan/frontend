@@ -5,6 +5,9 @@ import { SessionProvider } from 'next-auth/react';
 
 import '../styles/global.css';
 import Pixel from '../lib/pixel';
+import { Body, Container } from '../components/Shared/Layout/Layout';
+import Footer from '../components/Shared/Footer/Footer';
+import NavBar from '../components/Shared/Navbar/Navbar';
 require('helvatica-neue-lt/index.css');
 
 function App({ Component, pageProps: { session, ...pageProps } }) {
@@ -26,7 +29,12 @@ function App({ Component, pageProps: { session, ...pageProps } }) {
     <>
       <Pixel />
       <SessionProvider session={session}>
-        <Component {...pageProps} />
+        <Container>
+          <NavBar />
+          <Body>
+            <Component {...pageProps} />
+          </Body>
+        </Container>
       </SessionProvider>
     </>
   );
