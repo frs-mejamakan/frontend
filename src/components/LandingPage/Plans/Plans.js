@@ -11,7 +11,6 @@ import {
 import Slider from '@mui/material/Slider';
 import Button from '../../Shared/Button/Button';
 import { priceCalculator } from '../../../utils/priceCalculator.utils';
-import ClaimModal from './ClaimModal/ClaimModal';
 
 import withRice from '../../../assets/Rice.svg';
 import noRice from '../../../assets/No Rice.svg';
@@ -72,7 +71,7 @@ const Plans = forwardRef(({ ref, mixpanel }) => {
     window.open(`https://wa.me/${601127192189}?text=${parseMessage}`);
   };
 
-  const submitClaim = () => {
+  const submitClaim = async () => {
     const payload = {
       familyMembers,
       planSelected,
@@ -80,7 +79,7 @@ const Plans = forwardRef(({ ref, mixpanel }) => {
       ...pricing,
       rice,
     };
-    claimVoucherRequest(payload);
+    await claimVoucherRequest(payload);
 
     whatsAppNumber(payload);
 
