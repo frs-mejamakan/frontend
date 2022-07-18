@@ -28,6 +28,11 @@ const SharedButton = styled.button`
     align-items: center;
     justify-content: ${(props) => (props.space ? 'space-between' : 'center')};
   }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 const Button = ({

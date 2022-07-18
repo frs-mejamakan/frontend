@@ -1,4 +1,4 @@
-import { useSession, signIn } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 import Button from '../Shared/Button/Button';
 import { Section } from '../Shared/Layout/Layout';
 import { ProvidersContainer } from './Auth.styles';
@@ -6,7 +6,6 @@ import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 
 const Auth = ({ providers }) => {
-  const { data: session } = useSession();
   return (
     <Section>
       <span>

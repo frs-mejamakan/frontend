@@ -52,10 +52,19 @@ callbacks.session = async function session({ session, token }) {
   return session;
 };
 
+// callbacks.redirect = async function redirect({ url, baseUrl }) {
+//   return baseUrl;
+// };
+
+const pages = {
+  signIn: '/auth/signin',
+};
+
 const options = {
   providers,
   secret,
   callbacks,
+  pages,
 };
 
 export default (req, res) => NextAuth(req, res, options);

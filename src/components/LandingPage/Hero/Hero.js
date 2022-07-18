@@ -6,14 +6,14 @@ import { HeroContainer } from './Hero.styles';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Banner from '../../../../public/assets/Hero.webp';
+import Link from 'next/link';
 
 const Hero = ({ session }) => {
-  const router = useRouter();
-
   let hero = 'Lauk delivery starting from RM10 per person';
   let desc =
     'We prepare, cook and deliver delicious Malaysian lauk Mondays to Fridays';
   let cta = 'GET YOUR FIRST MEAL FREE';
+  let ctaLink = '/payments/plans';
 
   if (session && !session.user.subscribed) {
     hero = 'Cooking and deciding what to eat is hard';
@@ -27,16 +27,14 @@ const Hero = ({ session }) => {
       <HeroContainer>
         <h1>{hero}</h1>
         <p>{desc}</p>
-        <Button
+        <Link
+          href={ctaLink}
           onClick={() => {
             Mixpanel.track('CTA Button Clicked', { section: 'Hero' });
-            if (!session) router.push('/auth/signin');
-            if (session && !session.user.subscribed)
-              router.push('/payments/plans');
           }}
         >
-          {cta}
-        </Button>
+          <Button>{cta}</Button>
+        </Link>
       </HeroContainer>
     </>
   );

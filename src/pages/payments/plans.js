@@ -5,15 +5,9 @@ import { useRouter } from 'next/router';
 
 const plans = () => {
   const router = useRouter();
-  const { data: session } = useSession({
-    required: true,
-    onUnauthenticated() {
-      router.push('/auth/signin');
-    },
-  });
   return (
     <>
-      <Plans session={session} />
+      <Plans />
     </>
   );
 };

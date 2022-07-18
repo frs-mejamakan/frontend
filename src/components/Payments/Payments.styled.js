@@ -38,6 +38,10 @@ export const Section = styled.div`
     color: var(--red);
     font-weight: 700;
   }
+
+  > h3 {
+    font-size: 14px;
+  }
 `;
 
 export const PlanGroup = styled.div`
@@ -106,6 +110,13 @@ export const CardWrapper = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1em;
+
+  > p {
+    text-decoration: italic;
+    color: #aab7c4;
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 1em;
+  }
 `;
 
 export const AddressContainer = styled.div`
@@ -134,4 +145,34 @@ export const FormContainer = styled.div`
 export const AddressFlex = styled.div`
   display: flex;
   gap: 0 1em;
+`;
+
+export const CardInput = styled.div`
+  padding: 1em 0;
+`;
+
+export const PlanSummary = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4em;
+`;
+
+export const DuoGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const PlanGroupWrap = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+`;
+
+export const SecureText = styled.div`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5em;
+  color: #aab7c4;
 `;

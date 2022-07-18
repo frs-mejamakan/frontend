@@ -6,13 +6,11 @@ import { Container } from '../../components/Shared/Layout/Layout';
 import NavBar from '../../components/Shared/Navbar/Navbar';
 
 const signin = ({ providers }) => {
-  const { status, data: session } = useSession();
   const router = useRouter();
-
-  if (session && !session.user.subscribed) {
-    router.push('/payments/plans');
+  const { data: session } = useSession();
+  if (session) {
+    router.push(router.query.callbackUrl);
   }
-
   return (
     <>
       <Auth providers={providers} />

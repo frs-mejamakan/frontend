@@ -7,9 +7,6 @@ const checkout = () => {
   const router = useRouter();
   const { data: session } = useSession({
     required: true,
-    onUnauthenticated() {
-      router.push('/auth/signin');
-    },
   });
   return <Checkout session={session} />;
 };

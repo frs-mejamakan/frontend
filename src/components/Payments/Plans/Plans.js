@@ -25,7 +25,7 @@ import { useRouter } from 'next/router';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 import { BottomBar } from '../../Shared/Layout/Layout';
 
-const Plans = ({ session }) => {
+const Plans = () => {
   const [familyMembers, setFamilyMembers] = useState(4);
   const [planSelected, setPlanSelected] = useState(20);
   const [packageSelected, setPackageSelected] = useState('A');
@@ -73,7 +73,7 @@ const Plans = ({ session }) => {
   return (
     <PaymentsContainer>
       <span>
-        <h1>Welcome, {session?.user.name}</h1>
+        <h1>Welcome to Mejamakan</h1>
         <p>Select a plan that's best for your family 👪</p>
       </span>
       <Calculator>

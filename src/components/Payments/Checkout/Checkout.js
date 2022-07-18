@@ -19,8 +19,8 @@ const Checkout = ({ session }) => {
   return (
     <PaymentsContainer>
       <span>
-        <h1>Just a few more steps 🚚 </h1>
-        <p>Tell us where to send it and make your payment</p>
+        <h1>Hello, {session?.user.name} 👋</h1>
+        <p>Tell us where to deliver and we are on our way</p>
       </span>
       <AddressContainer>
         <h3>Delivery Address </h3>
@@ -50,13 +50,13 @@ const Checkout = ({ session }) => {
               type='text'
               placeholder='So we know where to send it to'
             />
-            <TextField
-              label='Postcode'
-              name='postcode'
-              type='text'
-              placeholder='So we know where to send it to'
-            />
           </AddressFlex>
+          <TextField
+            label='Postcode'
+            name='postcode'
+            type='text'
+            placeholder='So we know where to send it to'
+          />
         </FormContainer>
       </AddressContainer>
       <Elements stripe={stripePromise}>
