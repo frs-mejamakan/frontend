@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardElement } from '@stripe/react-stripe-js';
+import { CardElement, PaymentElement } from '@stripe/react-stripe-js';
 import { CardInput } from '../../Payments.styled';
 // import './CardSectionStyles.css';
 
@@ -25,7 +25,8 @@ const CARD_ELEMENT_OPTIONS = {
 const CardSection = () => {
   return (
     <CardInput>
-      <CardElement options={CARD_ELEMENT_OPTIONS} />
+      <PaymentElement />
+      {/* <CardElement options={CARD_ELEMENT_OPTIONS} /> */}
     </CardInput>
   );
 };
