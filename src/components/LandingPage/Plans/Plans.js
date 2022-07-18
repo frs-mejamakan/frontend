@@ -79,7 +79,6 @@ const Plans = forwardRef(({ ref, mixpanel }) => {
       ...pricing,
       rice,
     };
-    await claimVoucherRequest(payload);
 
     whatsAppNumber(payload);
 
@@ -230,7 +229,7 @@ const Plans = forwardRef(({ ref, mixpanel }) => {
             submitClaim();
           }}
         >
-          CLAIM YOUR FREE MEALS
+          START MY DINNER PLAN
         </Button>
       </Calculator>
     </PlansContainer>

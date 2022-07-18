@@ -42,7 +42,7 @@ const How = ({ mixpanel }) => {
           scrollToViewButton('pricing');
         }}
       >
-        CLAIM YOUR FREE MEALS
+        CREATE MY DINNER PLAN
       </Button>
     </HowContainer>
   );
