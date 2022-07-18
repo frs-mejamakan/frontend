@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavbarContainer } from './NavBar.styles';
 import logo from '../../../assets/mejamakan logo.png';
-import { scrollToViewButton } from '../../../Utils/ScrollToView/scrollToViewButton';
+import { scrollToViewButton } from '../../../utils/ScrollToView/scrollToViewButton';
 
 const NavBar = ({ mixpanel }) => {
   return (

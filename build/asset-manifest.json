@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.83d28795.css",
-    "main.js": "/static/js/main.5094eadf.js",
+    "main.js": "/static/js/main.021e5f46.js",
     "static/media/auntiear.png": "/static/media/auntiear.81173aae64fc3da507a2.png",
     "static/media/subset-HelveticaNeueLT-Regular.ttf": "/static/media/subset-HelveticaNeueLT-Regular.a4190db1ef1834be4832.ttf",
     "static/media/Asam Beef.png": "/static/media/Asam Beef.64dbc98211d34cf48a1d.png",
@@ -36,12 +36,14 @@
     "static/media/Stir Fried Sawi.png": "/static/media/Stir Fried Sawi.e88c029ba34769e40ff9.png",
     "static/media/subset-HelveticaNeueLT-Regular.woff2": "/static/media/subset-HelveticaNeueLT-Regular.1c92a4af5f15a5e84470.woff2",
     "static/media/mejamakan logo.png": "/static/media/mejamakan logo.2c4f7bb9692d9bc72180.png",
+    "static/media/No Rice.svg": "/static/media/No Rice.c015be0140376d670c5475a9583d299c.svg",
+    "static/media/Rice.svg": "/static/media/Rice.e518625d64f7f4470f7c73aadbb995fd.svg",
     "index.html": "/index.html",
     "main.83d28795.css.map": "/static/css/main.83d28795.css.map",
-    "main.5094eadf.js.map": "/static/js/main.5094eadf.js.map"
+    "main.021e5f46.js.map": "/static/js/main.021e5f46.js.map"
   },
   "entrypoints": [
     "static/css/main.83d28795.css",
-    "static/js/main.5094eadf.js"
+    "static/js/main.021e5f46.js"
   ]
 }

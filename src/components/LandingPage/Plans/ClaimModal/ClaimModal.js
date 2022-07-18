@@ -12,7 +12,7 @@ import Button from '../../../Shared/Button/Button';
 import { v4 as uuidv4 } from 'uuid';
 
 import { getDatabase, ref, set } from 'firebase/database';
-import { scrollToViewButton } from '../../../../Utils/ScrollToView/scrollToViewButton';
+import { scrollToViewButton } from '../../../../utils/ScrollToView/scrollToViewButton';
 import { claimVoucherRequest } from './ClaimModal.services';
 
 import ReferralCodeGenerator from 'referral-code-generator';
@@ -28,7 +28,7 @@ const ClaimModal = ({
   pricing,
   mixpanel,
 }) => {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(true);
   const [formErrors, setFormErrors] = useState({
     name: '',
     email: '',
@@ -53,45 +53,7 @@ const ClaimModal = ({
     return error;
   };
 
-  const submitClaim = () => {
-    const db = getDatabase();
-    const isError = validate();
-    const referralCode = ReferralCodeGenerator.custom(
-      'uppercase',
-      5,
-      5,
-      formData.email
-    );
-    if (!isError) {
-      set(ref(db, 'claims/' + uuidv4()), {
-        ...formData,
-        familyMembers,
-        planSelected,
-        packageSelected,
-        referralCode,
-        ...pricing,
-      }).then(async () => {
-        setSubmitted(true);
-
-        const payload = {
-          email: formData.email,
-          name: formData.name,
-          postcode: formData.postcode,
-          referralCode: referralCode,
-        };
-
-        claimVoucherRequest(payload);
-
-        mixpanel.track('Claimed Voucher', {
-          ...formData,
-          familyMembers,
-          planSelected,
-          packageSelected,
-          ...pricing,
-        });
-      });
-    }
-  };
+  const submitClaim = () => {};
 
   return (
     <Modal open={modalState} onClose={modalClose}>

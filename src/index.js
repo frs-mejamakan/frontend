@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import database from './firebase';
 import { MixpanelProvider } from 'react-mixpanel-browser';
 
 require('helvatica-neue-lt/index.css');

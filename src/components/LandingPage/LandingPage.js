@@ -25,8 +25,8 @@ const LandingPage = () => {
       <Hero mixpanel={mixpanel} />
       <Plans ref={pricingRef} mixpanel={mixpanel} />
       <Chef />
-      <How mixpanel={mixpanel} />
       <Menu ref={menuRef} />
+      <How mixpanel={mixpanel} />
       <Footer mixpanel={mixpanel} />
       <FAB mixpanel={mixpanel} />
     </Container>

@@ -10,8 +10,12 @@ import {
 } from './Plans.styled';
 import Slider from '@mui/material/Slider';
 import Button from '../../Shared/Button/Button';
-import { priceCalculator } from '../../../Utils/priceCalculator.utils';
+import { priceCalculator } from '../../../utils/priceCalculator.utils';
 import ClaimModal from './ClaimModal/ClaimModal';
+
+import withRice from '../../../assets/Rice.svg';
+import noRice from '../../../assets/No Rice.svg';
+import { claimVoucherRequest } from './ClaimModal/ClaimModal.services';
 
 const Plans = forwardRef(({ ref, mixpanel }) => {
   const [familyMembers, setFamilyMembers] = useState(4);
@@ -27,6 +31,7 @@ const Plans = forwardRef(({ ref, mixpanel }) => {
     email: '',
     postcode: '',
   });
+  const [rice, setRice] = useState('no rice');
 
   const formHandler = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -44,11 +49,12 @@ const Plans = forwardRef(({ ref, mixpanel }) => {
     const priceOutput = priceCalculator(
       familyMembers,
       planSelected,
-      packageSelected
+      packageSelected,
+      rice
     );
 
     setPricing(priceOutput);
-  }, [planSelected, packageSelected, familyMembers]);
+  }, [planSelected, packageSelected, familyMembers, rice]);
 
   const handleSliderChange = (e, newValue) => {
     setFamilyMembers(newValue);
@@ -59,6 +65,38 @@ const Plans = forwardRef(({ ref, mixpanel }) => {
   if (planSelected === 5) perVariable = 'per week';
   if (planSelected === 10) perVariable = 'every 2 weeks';
   if (planSelected === 20) perVariable = 'per month';
+
+  const whatsAppNumber = (payload) => {
+    const message = `Hey! I'd like to subscribe to Mejamakan :)  %0a%0aI have *${payload.familyMembers} members* in my family %0aI would like to subscribe to *package ${payload.packageSelected}* %0aI would like to have *${payload.rice}* with my lauk`;
+    const parseMessage = message.replace(' ', '%20');
+    window.open(`https://wa.me/${601127192189}?text=${parseMessage}`);
+  };
+
+  const submitClaim = () => {
+    const payload = {
+      familyMembers,
+      planSelected,
+      packageSelected,
+      ...pricing,
+      rice,
+    };
+    claimVoucherRequest(payload);
+
+    whatsAppNumber(payload);
+
+    mixpanel.track('Whatsapp from Calculator', {
+      ...formData,
+      familyMembers,
+      planSelected,
+      packageSelected,
+      ...pricing,
+    });
+  };
+
+  const riceHandler = (choice) => {
+    setRice(choice);
+  };
+
   return (
     <PlansContainer ref={ref} id='pricing'>
       <h1>Plans</h1>
@@ -160,6 +198,23 @@ const Plans = forwardRef(({ ref, mixpanel }) => {
           </PlanGroup>
         </Section>
         <Section style={{ marginTop: '13px' }}>
+          <p>Aromatic rice 🍚 </p>
+          <PlanGroup style={{ marginTop: '0.5em' }}>
+            <PackageSelector
+              active={rice === 'no rice'}
+              onClick={() => riceHandler('no rice')}
+            >
+              <img src={noRice} height='85px' width='85px' />
+            </PackageSelector>
+            <PackageSelector
+              active={rice === 'aromatic rice'}
+              onClick={() => riceHandler('aromatic rice')}
+            >
+              <img src={withRice} height='85px' width='85px' />
+            </PackageSelector>
+          </PlanGroup>
+        </Section>
+        <Section style={{ marginTop: '13px' }}>
           <p>You would pay</p>
           <Price>
             <h3>RM{pricing.perPerson} per person</h3>
@@ -173,23 +228,12 @@ const Plans = forwardRef(({ ref, mixpanel }) => {
           width='100%'
           onClick={() => {
             mixpanel.track('CTA Button Clicked', { section: 'Plans' });
-            modalOpen();
+            submitClaim();
           }}
         >
           CLAIM YOUR FREE MEALS
         </Button>
       </Calculator>
-      <ClaimModal
-        modalState={modalState}
-        modalClose={modalClose}
-        familyMembers={familyMembers}
-        planSelected={planSelected}
-        packageSelected={packageSelected}
-        formData={formData}
-        formHandler={formHandler}
-        pricing={pricing}
-        mixpanel={mixpanel}
-      />
     </PlansContainer>
   );
 });

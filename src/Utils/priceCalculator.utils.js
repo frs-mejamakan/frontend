@@ -1,7 +1,8 @@
 export const priceCalculator = (
   familyMembers,
   planSelected,
-  packageSelected
+  packageSelected,
+  rice
 ) => {
   let perPerson = 0;
   let perPlan = 0;
@@ -33,6 +34,8 @@ export const priceCalculator = (
   if (packageSelected === 'C' && planSelected === 20) {
     perPerson = 18;
   }
+
+  if (rice === 'aromatic rice') perPerson += 2;
 
   perPlan = perPerson * familyMembers * planSelected;
 
