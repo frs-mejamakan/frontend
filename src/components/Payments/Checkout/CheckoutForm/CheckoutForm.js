@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Elements,
   useStripe,
@@ -20,7 +20,6 @@ import {
 import { createPaymentIntent } from '../../Payments.service';
 import { useRouter } from 'next/router';
 import VpnLockRoundedIcon from '@mui/icons-material/VpnLockRounded';
-import PaymentsRoundedIcon from '@mui/icons-material/PaymentsRounded';
 import { priceCalculator } from '../../../../utils/priceCalculator.utils';
 const CheckoutForm = ({ session }) => {
   const stripe = useStripe();

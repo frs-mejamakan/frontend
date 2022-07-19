@@ -46,7 +46,6 @@ const Checkout = ({ session }) => {
     clientSecret,
     appearance,
   };
-  console.log(options);
 
   return (
     <PaymentsContainer>
