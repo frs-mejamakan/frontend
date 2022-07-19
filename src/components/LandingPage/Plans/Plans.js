@@ -66,7 +66,7 @@ const Plans = forwardRef(({ ref, mixpanel }) => {
   if (planSelected === 20) perVariable = 'per month';
 
   const whatsAppNumber = (payload) => {
-    const message = `Hey! I'd like to subscribe to Mejamakan :)  %0a%0aI have *${payload.familyMembers} members* in my family %0aI would like to subscribe to *package ${payload.packageSelected}* %0aI would like to have *${payload.rice}* with my lauk`;
+    const message = `Hey! I'd like to subscribe to Mejamakan :)  %0a%0aI have *${payload.familyMembers} family members* %0aI would like to subscribe to *package ${payload.packageSelected}* %0aI would like a delivery of *${payload.planSelected} days*%0aI would like to have *${payload.rice}* with my lauk`;
     const parseMessage = message.replace(' ', '%20');
     window.open(`https://wa.me/${601127192189}?text=${parseMessage}`);
   };
