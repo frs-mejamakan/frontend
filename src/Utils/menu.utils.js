@@ -124,41 +124,6 @@ export const WeekOne = [
       {
         category: 'protein',
         subCategory: 'chicken',
-        name: 'Nyonya Fried Chicken',
-        image: NyonyaFriedChicken,
-      },
-      {
-        category: 'protein',
-        subCategory: 'fish',
-        name: 'Nyonya Asam Pedas',
-        image: NyonyaAsamPedas,
-      },
-      {
-        category: 'protein',
-        subCategory: 'beef',
-        name: 'Asam Beef',
-        image: AsamBeef,
-      },
-      {
-        category: 'side dish',
-        subCategory: 'potato',
-        name: 'Begedil',
-        image: Begedil,
-      },
-      {
-        category: 'vegetable',
-        subCategory: 'bayam',
-        name: 'Bayam Lemak Keledek',
-        image: BayamLemakKeledek,
-      },
-    ],
-  },
-  {
-    day: 'thursday',
-    menu: [
-      {
-        category: 'protein',
-        subCategory: 'chicken',
         name: 'Mango Chicken Kerabu',
         image: MangoChickenKerabu,
       },
@@ -194,6 +159,42 @@ export const WeekOne = [
       },
     ],
   },
+  {
+    day: 'thursday',
+    menu: [
+      {
+        category: 'protein',
+        subCategory: 'chicken',
+        name: 'Nyonya Fried Chicken',
+        image: NyonyaFriedChicken,
+      },
+      {
+        category: 'protein',
+        subCategory: 'fish',
+        name: 'Nyonya Asam Pedas',
+        image: NyonyaAsamPedas,
+      },
+      {
+        category: 'protein',
+        subCategory: 'beef',
+        name: 'Asam Beef',
+        image: AsamBeef,
+      },
+      {
+        category: 'side dish',
+        subCategory: 'potato',
+        name: 'Begedil',
+        image: Begedil,
+      },
+      {
+        category: 'vegetable',
+        subCategory: 'bayam',
+        name: 'Bayam Lemak Keledek',
+        image: BayamLemakKeledek,
+      },
+    ],
+  },
+
   {
     day: 'friday',
     menu: [
